@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectOption } from "../redux/adminSlice";
-import PolicyForm from "./PolicyForm";
-import DiscountForm from "./DiscountForm";
+import PolicyForm from "../components/PolicyForm";
+import DiscountForm from "../components/DiscountForm";
 
 const AdminPage = () => {
   const dispatch = useDispatch();

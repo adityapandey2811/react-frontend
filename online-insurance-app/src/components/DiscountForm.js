@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { submitForm } from "../redux/adminSlice";
 import axios from "axios";
 
-const DiscountForm = () => {
+const DiscountForm = (props) => {
   const dispatch = useDispatch();
   const bearerToken = useSelector((state) => state.auth.token);
   const [discountData, setDiscountData] = useState({
@@ -30,7 +30,7 @@ const DiscountForm = () => {
       );
 
       dispatch(submitForm({ type: "discount", data: response.data }));
-
+      props.handleSubmit("Discount Added..!!!");
       setDiscountData({
         policyId: 0,
         value: 0.0,

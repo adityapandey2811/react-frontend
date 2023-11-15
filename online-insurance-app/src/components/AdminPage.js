@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectOption } from "../redux/adminSlice";
 import PolicyForm from "./PolicyForm";
@@ -7,9 +7,22 @@ import DiscountForm from "./DiscountForm";
 const AdminPage = () => {
   const dispatch = useDispatch();
   const selectedOption = useSelector((state) => state.admin.selectedOption);
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleOptionChange = (option) => {
     dispatch(selectOption(option));
+  };
+
+  const handleSubmit = async (data) => {
+    try {
+      setSubmissionMessage(data);
+      setTimeout(() => {
+        setSubmissionMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmissionMessage("Submission failed. Please try again.");
+    }
   };
 
   return (
@@ -42,9 +55,15 @@ const AdminPage = () => {
         </div>
       </div>
       <div>
-        {selectedOption === "policy" && <PolicyForm />}
-        {selectedOption === "discount" && <DiscountForm />}
-        {/* {submissionMessage && <p className="text-green-500 mt-4">{submissionMessage}</p>} */}
+        {selectedOption === "policy" && (
+          <PolicyForm handleSubmit={handleSubmit} />
+        )}
+        {selectedOption === "discount" && (
+          <DiscountForm handleSubmit={handleSubmit} />
+        )}
+        {submissionMessage && (
+          <p className="text-green-500 mt-4">{submissionMessage}</p>
+        )}
       </div>
     </div>
   );

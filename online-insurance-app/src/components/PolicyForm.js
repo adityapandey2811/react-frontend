@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { submitForm } from "../redux/adminSlice";
 import axios from "axios";
 
-const PolicyForm = () => {
+const PolicyForm = (props) => {
   const dispatch = useDispatch();
+  const bearerToken = useSelector((state) => state.auth.token);
   const [policyData, setPolicyData] = useState({
     policyName: "",
     companyName: "",
@@ -23,10 +24,16 @@ const PolicyForm = () => {
 
     try {
       const response = await axios.post(
-        "http://your-backend-url/api/policies",
-        policyData
+        "http://localhost:8077/insurance/addPolicy",
+        policyData,
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
       );
       dispatch(submitForm({ type: "policy", data: response.data }));
+      props.handleSubmit("Policy Added..!!!");
       setPolicyData({
         policyName: "",
         companyName: "",

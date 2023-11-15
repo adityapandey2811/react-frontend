@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { submitForm } from "../redux/adminSlice";
 import axios from "axios";
 
-const DiscountForm = () => {
+const DiscountForm = (props) => {
   const dispatch = useDispatch();
+  const bearerToken = useSelector((state) => state.auth.token);
   const [discountData, setDiscountData] = useState({
     policyId: 0,
-    price: 0.0,
+    value: 0.0,
   });
 
   const handleChange = (e) => {
@@ -19,15 +20,20 @@ const DiscountForm = () => {
 
     try {
       const response = await axios.post(
-        "http://your-backend-url/api/discounts",
-        discountData
+        "http://localhost:8077/discount/creatediscount",
+        discountData,
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
       );
 
       dispatch(submitForm({ type: "discount", data: response.data }));
-
+      props.handleSubmit("Discount Added..!!!");
       setDiscountData({
         policyId: 0,
-        price: 0.0,
+        value: 0.0,
       });
     } catch (error) {
       console.error("Error submitting discount form:", error);
@@ -65,8 +71,8 @@ const DiscountForm = () => {
           <input
             type="number"
             id="price"
-            name="price"
-            value={discountData.price}
+            name="value"
+            value={discountData.value}
             onChange={handleChange}
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
           />

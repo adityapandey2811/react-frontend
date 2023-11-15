@@ -1,9 +1,8 @@
-// src/redux/store.js
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import authReducer from './reducers/authReducer';
-import adminReducer from './adminSlice';
-import authReducerRegister from './reducers/authReducerRegister';
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import authReducer from "./reducers/authReducer";
+import adminReducer from "./adminSlice";
+import authReducerRegister from "./reducers/authReducerRegister";
 
 const rootReducer = combineReducers({
   auth: authReducer,

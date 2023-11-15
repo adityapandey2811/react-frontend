@@ -1,24 +1,13 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import RegistrationPage from './components/RegistrationPage';
+import React from "react";
+import Routers from "./pages/Routers";
+import "./App.css";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <RegistrationPage />
-      </div>
-    </Provider>
+    <div className="App">
+      <Routers />
+    </div>
   );
-// import logo from "./logo.svg";
-// import "./App.css";
-// import AdminPage from "./components/AdminPage";
-
-// function App() {
-//   return <div className="App">
-//     <AdminPage />
-//   </div>;
 }
 
 export default App;

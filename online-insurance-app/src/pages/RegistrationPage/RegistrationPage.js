@@ -1,7 +1,6 @@
-// src/RegistrationPage.js
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { register } from "../redux/actions/authActionsRegister";
+import { register } from "../../redux/actions/authActionsRegister";
 import "./RegistrationPage.css";
 
 const RegistrationPage = ({ register, error }) => {
@@ -84,24 +83,29 @@ const RegistrationPage = ({ register, error }) => {
         <label htmlFor="userType">User Type</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <input
-            type="text"
+          <select
             value={userType}
-            placeholder="User Type"
             onChange={(e) => setUserType(e.target.value)}
-          />
+          >
+            <option value="" disabled>
+              Select User Type
+            </option>
+            <option value="USER">User</option>
+          </select>
         </div>
       </div>
       <div className="gender">
         <label htmlFor="gender">Gender</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <input
-            type="text"
-            value={gender}
-            placeholder="Gender"
-            onChange={(e) => setGender(e.target.value)}
-          />
+          <select value={gender} onChange={(e) => setGender(e.target.value)}>
+            <option value="" disabled>
+              Select Gender
+            </option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+            <option value="OTHER">Other</option>
+          </select>
         </div>
       </div>
       <div className="nickName">

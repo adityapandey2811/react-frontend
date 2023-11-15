@@ -1,7 +1,7 @@
 // src/LoginPage.js
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { login } from "./redux/actions/authActions";
+import { login } from "../redux/actions/authActions";
 import "./LoginPage.css";
 
 const LoginPage = ({ login, error }) => {

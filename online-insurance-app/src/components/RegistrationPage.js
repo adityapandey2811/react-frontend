@@ -1,7 +1,7 @@
 // src/RegistrationPage.js
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { register } from "./redux/actions/authActionsRegister";
+import { register } from "../redux/actions/authActionsRegister";
 import "./RegistrationPage.css";
 
 const RegistrationPage = ({ register, error }) => {

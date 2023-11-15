@@ -8,9 +8,9 @@ function Routers(props) {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="policies" element={<PoliciesPage />} />
-          <Route path="cart" element={<CartPage />} />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/policies" element={<PoliciesPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );

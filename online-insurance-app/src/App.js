@@ -1,12 +1,12 @@
 import React from "react";
-import LoginPage from "./LoginPage";
+import LoginPage from "./components/LoginPage";
 import AdminPage from "./components/AdminPage";
 
 function App() {
   return (
     <div className="App">
       <LoginPage />
-      {/* <AdminPage /> */}
+      <AdminPage />
     </div>
   );
 }

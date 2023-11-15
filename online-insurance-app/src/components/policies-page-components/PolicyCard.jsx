@@ -38,13 +38,6 @@ export default function PolicyCard({
       </div>
       <div className="p-6 pt-0 flex items-center justify-around">
         <button
-          className="show-details-button select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
-          type="button"
-          data-ripple-light="true"
-        >
-          Show Details
-        </button>
-        <button
           className="add-to-cart-button select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 flex justify-center items-center"
           type="button"
           data-ripple-light="true"

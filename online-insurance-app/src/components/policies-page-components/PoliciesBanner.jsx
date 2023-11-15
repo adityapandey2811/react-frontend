@@ -1,15 +1,12 @@
 import React from "react";
 
-export default function PoliciesBanner({ title, value }) {
+const PoliciesBanner = ({ title, value }) => {
   return (
-    <div className="border-b-8">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1 className="text-5xl">{title}</h1>
-      <i className="text-sm">{value}</i>
+    <div className="border-b border-gray-300 py-8">
+      <h1 className="text-3xl font-semibold mb-2">{title}</h1>
+      <p className="text-sm text-gray-600">{value}</p>
     </div>
   );
-}
+};
+
+export default PoliciesBanner;

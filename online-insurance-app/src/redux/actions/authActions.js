@@ -1,6 +1,6 @@
+import { login as userLogin } from "../reducers/loginLogoutRedux";
 export const login = (username, password) => {
   const apiUrl = "http://localhost:8077/authenticate/login";
-
   return async (dispatch) => {
     try {
       const response = await fetch(apiUrl, {
@@ -21,7 +21,9 @@ export const login = (username, password) => {
       }
 
       dispatch({ type: "LOGIN_SUCCESS", payload: { username, token } });
+      dispatch(userLogin());
       console.info("Logged in");
+      return true;
     } catch (error) {
       console.error("Error during authentication", error);
     }

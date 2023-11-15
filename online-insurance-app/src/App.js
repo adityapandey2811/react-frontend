@@ -1,14 +1,15 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_Header from './header/Navbar_Header';
-import Footer from './footer/footer'
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import LoginPage from './LoginPage';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar_Header/>
-      <Footer/>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <LoginPage />
+      </div>
+    </Provider>
   );
 }
 

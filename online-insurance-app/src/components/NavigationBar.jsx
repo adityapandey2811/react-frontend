@@ -18,14 +18,14 @@ const NavigationBar = ({ cartItemCount }) => {
   };
 
   return (
-    <div className="relative w-full h-16 flex justify-between items-center px-4 bg-blue-900 text-white">
+    <div className="relative w-full h-16 flex justify-between items-center px-4 bg-black text-white pl-10 pr-10">
       <div className="flex items-center">
         <img
           src={InsuranceBuildingLogo}
           alt="insurance-building-logo"
           className="w-8 h-8 mr-2"
         />
-        <h1 className="text-lg font-semibold">Insurance Company</h1>
+        <Link to="/"><h1 className="text-lg font-semibold">Insurance Company</h1></Link>
       </div>
 
       {/* Hamburger Menu */}
@@ -36,17 +36,17 @@ const NavigationBar = ({ cartItemCount }) => {
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-4 items-center">
         <li>
-          <Link to="/" className="hover:underline">
+          <Link to="/" className=" nav-item">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/policies" className="hover:underline">
+          <Link to="/policies" className=" nav-item">
             Policies
           </Link>
         </li>
         <li>
-          <Link to="/about" className="hover:underline">
+          <Link to="/about" className=" nav-item">
             About Us
           </Link>
         </li>

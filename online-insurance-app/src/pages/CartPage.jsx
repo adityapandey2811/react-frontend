@@ -12,8 +12,10 @@ import DiscountComponent from "./DiscountPage/DiscountComponent";
 function CartPage(props) {
   const [allCartItems, setallCartItems] = useState(cartItemsDataTest);
   const [allCatalogData, setAllCatalogData] = useState(catalogDataTest);
-  const [policyIdList, setPolicyIdList] = useState([]);
+  const [totalDiscount, setTotalDiscount] = useState(0);
+
   const bearerToken = localStorage.getItem("token");
+
   useEffect(() => {
     const fetchCatalogData = async () => {
       try {
@@ -46,7 +48,7 @@ function CartPage(props) {
             },
           }
         );
-        setPolicyIdList(response.data.listOfPolicyIds);
+
         const temp = [];
         for (const element of response.data.listOfPolicyIds) {
           temp.push({
@@ -63,11 +65,12 @@ function CartPage(props) {
     fetchCartItemData();
   }, []);
 
+  console.log(totalDiscount);
   return (
     <div className="bg-slate-50">
       <NavigationBar cartItemCount={allCartItems.length} />
-      <div>
-        <div>
+      <div className="flex">
+        <div className=" w-3/4 p-4">
           <CartHeading itemCount={allCartItems.length} />
           <CartItemsContainer
             allCartItems={allCartItems}
@@ -79,9 +82,17 @@ function CartPage(props) {
             allCartItems={allCartItems}
             setallCartItems={setallCartItems}
             allCatalogData={allCatalogData}
+            discountTotal={totalDiscount}
           />
         </div>
-        <DiscountComponent cartItems={policyIdList} />
+        <div className="flex-shrink-0 w-1/4 p-4">
+          <div className="bg-white rounded-md shadow-md p-4">
+            <DiscountComponent
+              cataLog={allCatalogData}
+              setTotalDiscount={setTotalDiscount}
+            />
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

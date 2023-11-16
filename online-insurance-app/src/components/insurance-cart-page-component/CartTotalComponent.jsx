@@ -1,7 +1,12 @@
 import axios, { all } from "axios";
 import React from "react";
 
-function CartTotalComponent({ allCartItems, setallCartItems, allCatalogData }) {
+function CartTotalComponent({
+  allCartItems,
+  setallCartItems,
+  allCatalogData,
+  discountTotal,
+}) {
   const bearerToken = localStorage.getItem("token");
   const deleteCartHandler = async () => {
     const response = await axios.delete(
@@ -35,22 +40,23 @@ function CartTotalComponent({ allCartItems, setallCartItems, allCatalogData }) {
     }
   };
   const cartDetailArray = [];
-  for (let i = 0; i < allCartItems.length; i++) {
-    for (let j = 0; j < allCatalogData.length; j++) {
-      if (allCatalogData[j].policyId === allCartItems[i].policyId) {
-        cartDetailArray.push(allCatalogData[j]);
+  for (const element of allCartItems) {
+    for (const dat of allCatalogData) {
+      if (dat.policyId === element.policyId) {
+        cartDetailArray.push(dat);
       }
     }
   }
+
+  const total = () => {
+    const val = cartDetailArray.reduce((total, policy) => {
+      return total + policy.premium;
+    }, 0);
+    return val - discountTotal;
+  };
   return (
     <div className="container justify-center flex items-center text-center align-middle mb-20 flex-col mx-auto">
-      <h2 className="text-3xl">
-        Cart Total: $
-        {cartDetailArray.reduce((total, policy) => {
-          const policyTotal = policy.premium;
-          return total + policyTotal;
-        }, 0)}
-      </h2>
+      <h2 className="text-3xl">Cart Total: ${total()}</h2>
       <div className="flex flex-row">
         <button
           className="select-none m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"

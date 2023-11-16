@@ -1,25 +1,26 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-function DiscountComponent({ cartItems, cartTotal, setCartTotal }) {
+function DiscountComponent({ cataLog, setTotalDiscount }) {
   const [discounts, setDiscounts] = useState([]);
-  const [appliedDiscount, setAppliedDiscount] = useState(null);
+  const [appliedDiscount, setAppliedDiscount] = useState(0);
+  const [selectedDiscount, setSelectedDiscount] = useState(null);
   const bearerToken = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchDiscounts = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:8077/discount/showbypolicyid",
-          cartItems,
+        const response = await axios.get(
+          "http://localhost:8077/discount/showdiscount",
           {
             headers: {
               Authorization: `Bearer ${bearerToken}`,
             },
           }
         );
-        console.log(response);
-        if (response.ok) {
-          const data = await response.json();
+        console.log(response.data);
+        if (response.status === 200) {
+          const data = response.data;
           setDiscounts(data);
         } else {
           console.error("Failed to fetch available discounts");
@@ -33,19 +34,49 @@ function DiscountComponent({ cartItems, cartTotal, setCartTotal }) {
   }, []);
 
   const applyDiscount = (discount) => {
-    setAppliedDiscount(discount);
-    setCartTotal(cartTotal - discount.amount);
+    setAppliedDiscount(discount.value);
+    setTotalDiscount(discount.value);
+    setSelectedDiscount(discount.policyId);
   };
+
+  const removeDiscount = () => {
+    setAppliedDiscount(0);
+    setTotalDiscount(0);
+    setSelectedDiscount(null);
+  };
+
+  const temp = [];
+  for (const element of cataLog) {
+    for (const dis of discounts) {
+      if (element.policyId === dis.policyId) {
+        temp.push({
+          id: element.policyId,
+          policyName: element.policyName,
+          value: dis.value,
+        });
+      }
+    }
+  }
 
   return (
     <div className="discount-container">
       <h2>Available Discounts</h2>
-      {discounts.length > 0 ? (
+      {temp.length > 0 ? (
         <ul>
-          {discounts.map((discount) => (
+          {temp.map((discount) => (
             <li key={discount.id}>
-              {discount.name} - ${discount.amount}{" "}
-              <button onClick={() => applyDiscount(discount)}>Apply</button>
+              Policy Id = {discount.policyName}, Value = ${discount.value}{" "}
+              <button
+                className={`select-none m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md ${
+                  selectedDiscount === discount.id
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
+                }`}
+                onClick={() => applyDiscount(discount)}
+                disabled={selectedDiscount !== null}
+              >
+                Apply
+              </button>
             </li>
           ))}
         </ul>
@@ -53,12 +84,16 @@ function DiscountComponent({ cartItems, cartTotal, setCartTotal }) {
         <p>No discounts available</p>
       )}
 
-      {appliedDiscount && (
+      {appliedDiscount > 0 && (
         <div>
-          <h3>Applied Discount</h3>
-          <p>
-            {appliedDiscount.name} - ${appliedDiscount.amount}
-          </p>
+          <h3>Total Discount Applied</h3>
+          <p>${appliedDiscount}</p>
+          <button
+            className="m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
+            onClick={removeDiscount}
+          >
+            Remove
+          </button>
         </div>
       )}
     </div>

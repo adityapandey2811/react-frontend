@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/authActions";
+import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 const LoginPage = ({ login, error }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleLogin = () => {
-    login(username, password);
+    if (login(username, password)) navigate("/admin");
+    else navigate("/");
   };
 
   return (
@@ -19,18 +21,38 @@ const LoginPage = ({ login, error }) => {
         <label for="username">Username</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <input type="text" value={username} placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
+          <input
+            type="text"
+            value={username}
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
       </div>
       <div className="password">
         <label for="password">Password</label>
         <div className="sec-2">
           <ion-icon name="lock-closed-outline"></ion-icon>
-          <input type={showPassword ? 'text' : 'password'} value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
-          <ion-icon className="show-hide" name="eye-outline" onClick={() => setShowPassword(!showPassword)}></ion-icon>
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <ion-icon
+            className="show-hide"
+            name="eye-outline"
+            onClick={() => setShowPassword(!showPassword)}
+          ></ion-icon>
         </div>
       </div>
-      <button className="login login-container" type="button" onClick={handleLogin}>Login </button>
+      <button
+        className="login login-container"
+        type="button"
+        onClick={handleLogin}
+      >
+        Login{" "}
+      </button>
       <div className="footer">
         <div>Signup</div>
         <div>Forgot Password?</div>

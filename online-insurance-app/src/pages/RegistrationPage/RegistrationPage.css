@@ -26,7 +26,6 @@
 }
 
 .screen-1 .username,
-.screen-1 .password,
 .screen-1 .firstName,
 .screen-1 .lastName,
 .screen-1 .phoneNo,
@@ -43,7 +42,6 @@
   color: #4d4d4d;
 }
 
-
 .screen-1 .header {
   grid-column: span 2;
   padding: 1em;
@@ -54,43 +52,10 @@
   text-align: center;
 }
 
-
-/* .screen-1 .input-container {
-  background: white;
-  box-shadow: 0 0 2em #e6e9f9;
-  padding: 0.8em;
-  border-radius: 20px;
-  color: #4d4d4d;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-} */
-
 .screen-1 input {
   outline: none;
   border: none;
 }
-
-/* .screen-1 input::-moz-placeholder {
-  color: black;
-  font-size: 0.8em;
-}
-
-.screen-1 input:-ms-input-placeholder {
-  color: black;
-  font-size: 0.8em;
-}
-
-.screen-1 input::placeholder {
-  color: black;
-  font-size: 0.8em;
-}
-
-.screen-1 ion-icon {
-  color: #4d4d4d;
-  margin-bottom: -0.2em;
-} */
-
 
 .screen-1 .register-container {
   grid-column: span 2;
@@ -115,10 +80,6 @@
   color: #5e5e5e;
   gap: 14em;
 }
-
-/* .screen-1 .footer span {
-  cursor: pointer;
-} */
 
 button {
   cursor: pointer;

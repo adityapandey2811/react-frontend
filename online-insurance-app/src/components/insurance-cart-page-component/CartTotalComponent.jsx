@@ -27,7 +27,11 @@ function CartTotalComponent({
   const checkoutHandler = async () => {
     const response = await axios.post(
       "http://localhost:8077/insurancecart/createOrder",
-      { userId: localStorage.getItem("userId"), isPaymentDone: true },
+      {
+        userId: localStorage.getItem("userId"),
+        isPaymentDone: true,
+        totalAmountPaid: total(),
+      },
       {
         headers: {
           Authorization: `Bearer ${bearerToken}`,

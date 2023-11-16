@@ -59,13 +59,13 @@ function DiscountComponent({ cataLog, setTotalDiscount }) {
   }
 
   return (
-    <div className="discount-container">
-      <h2>Available Discounts</h2>
+    <div>
+      <h2 className="bg-lime-300 text-lg font-bold">Available Discounts</h2>
       {temp.length > 0 ? (
         <ul>
           {temp.map((discount) => (
             <li key={discount.id}>
-              Policy Id = {discount.policyName}, Value = ${discount.value}{" "}
+              Coupon Id = {discount.id}, Value = ${discount.value}{" "}
               <button
                 className={`select-none m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md ${
                   selectedDiscount === discount.id

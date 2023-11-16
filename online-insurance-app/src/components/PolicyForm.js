@@ -161,7 +161,7 @@ const PolicyForm = (props) => {
             <option value="PROPERTY">Property Insurance</option>
             <option value="FIRE">Fire Insurance</option>
 
-            {/* Add more options as needed */}
+
           </select>
         </div>
 

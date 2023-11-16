@@ -4,14 +4,15 @@ const initialState = {
 };
 
 const feedbackReducer = (state = initialState, action) => {
+  console.log(action.payload);
   switch (action.type) {
-    case 'ADD_FEEDBACK_SUCCESS':
+    case "ADD_FEEDBACK_SUCCESS":
       return { ...state, error: null };
-    case 'ADD_FEEDBACK_FAILURE':
+    case "ADD_FEEDBACK_FAILURE":
       return { ...state, error: action.payload };
-    case 'GET_FEEDBACKS_SUCCESS':
-      return { ...state, feedbacks: action.payload, error: null };
-    case 'GET_FEEDBACKS_FAILURE':
+    case "GET_FEEDBACKS_SUCCESS":
+      return { ...state, feedbacks: action.payload };
+    case "GET_FEEDBACKS_FAILURE":
       return { ...state, error: action.payload };
     default:
       return state;
@@ -19,24 +20,3 @@ const feedbackReducer = (state = initialState, action) => {
 };
 
 export default feedbackReducer;
-
-
-
-
-// const initialState = {
-//     feedbacks: [],
-//   };
-  
-//   const feedbackReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//       case 'ADD_FEEDBACK':
-//         return {
-//           ...state,
-//           feedbacks: [...state.feedbacks, action.payload],
-//         };
-//       default:
-//         return state;
-//     }
-//   };
-  
-//   export default feedbackReducer;

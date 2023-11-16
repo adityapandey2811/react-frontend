@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addFeedback } from "../../redux/actions/feedbackActions";
-import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./FeedbackForm.css";
 
 const FeedbackForm = (props) => {
@@ -10,14 +9,16 @@ const FeedbackForm = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [feedback, setFeedback] = useState({
-    orderId: "",
+    orderId: params.id,
     feedbackDescription: "",
+    feedbackDate: Date.now(),
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addFeedback(feedback));
-    navigate("/");
+    navigate("/orders");
+    alert("Feedback Added");
   };
 
   return (

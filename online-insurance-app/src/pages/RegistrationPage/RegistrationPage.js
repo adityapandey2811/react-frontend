@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../../redux/actions/authActionsRegister";
 import "./RegistrationPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegistrationPage = ({ register, error }) => {
   const [username, setUsername] = useState("");
@@ -14,6 +14,9 @@ const RegistrationPage = ({ register, error }) => {
   const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleRegister = () => {
     register({
@@ -26,6 +29,8 @@ const RegistrationPage = ({ register, error }) => {
       nickName,
       password,
     });
+    alert("User Added");
+    navigate("/login");
   };
 
   return (
@@ -83,7 +88,8 @@ const RegistrationPage = ({ register, error }) => {
         <label htmlFor="userType">User Type</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <select className="remove-border"
+          <select
+            className="remove-border"
             value={userType}
             onChange={(e) => setUserType(e.target.value)}
           >
@@ -98,7 +104,11 @@ const RegistrationPage = ({ register, error }) => {
         <label htmlFor="gender">Gender</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <select className="remove-border" value={gender} onChange={(e) => setGender(e.target.value)}>
+          <select
+            className="remove-border"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
             <option value="" disabled>
               Select Gender
             </option>
@@ -109,43 +119,47 @@ const RegistrationPage = ({ register, error }) => {
         </div>
       </div>
       <div className="nickName">
-  <label htmlFor="nickName">Nick Name</label>
-  <div className="sec-2">
-    <ion-icon name="person-outline"></ion-icon>
-    <input
-      type="text"
-      value={nickName}
-      placeholder="Nick Name"
-      onChange={(e) => setNickName(e.target.value)}
-    />
-  </div>
-</div>
+        <label htmlFor="nickName">Nick Name</label>
+        <div className="sec-2">
+          <ion-icon name="person-outline"></ion-icon>
+          <input
+            type="text"
+            value={nickName}
+            placeholder="Nick Name"
+            onChange={(e) => setNickName(e.target.value)}
+          />
+        </div>
+      </div>
 
-<div className="password"> {/* Change the class name to something unique */}
-  <label htmlFor="password">Password</label>
-  <div className="sec-2">
-    <ion-icon name="lock-closed-outline"></ion-icon>
-    <input
-      type={showPassword ? "text" : "password"}
-      value={password}
-      placeholder="Password"
-      onChange={(e) => setPassword(e.target.value)}
-    />
-    <ion-icon
-      className="show-hide"
-      name="eye-outline"
-      onClick={() => setShowPassword(!showPassword)}
-    ></ion-icon>
-  </div>
-</div>
+      <div className="password">
+        {" "}
+        <label htmlFor="password">Password</label>
+        <div className="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <ion-icon
+            className="show-hide"
+            name="eye-outline"
+            onClick={() => setShowPassword(!showPassword)}
+          ></ion-icon>
+        </div>
+      </div>
 
-<button
-  className="register-container register"
-  type="button"
-  onClick={handleRegister}
->
-  Register{" "}
-</button>
+      <button
+        className="register-container register"
+        type="button"
+        onClick={handleRegister}
+      >
+        Register{" "}
+      </button>
+      {submissionMessage && (
+        <p className="text-green-500 mt-4 text-center">{submissionMessage}</p>
+      )}
       <div className="footer-signup register-container">
         <Link to="/login" className="mr-8">
           Login

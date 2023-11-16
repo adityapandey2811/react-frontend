@@ -6,6 +6,7 @@ import InsuranceBuildingLogo from "../assets/building-icon.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/reducers/loginLogoutRedux";
+import { useNavigate } from "react-router-dom";
 
 const NavigationBar = ({ cartItemCount }) => {
   const [nav, setNav] = useState(false);
@@ -16,6 +17,7 @@ const NavigationBar = ({ cartItemCount }) => {
   const handleClick = () => {
     setNav(!nav);
   };
+  const navigate = useNavigate();
 
   return (
     <div className="relative w-full h-16 flex justify-between items-center px-4 bg-black text-white pl-10 pr-10 text-lg">
@@ -25,7 +27,9 @@ const NavigationBar = ({ cartItemCount }) => {
           alt="insurance-building-logo"
           className="w-8 h-8 mr-2"
         />
-        <Link to="/"><h1 className="text-lg font-semibold">Insurance Company</h1></Link>
+        <Link to="/">
+          <h1 className="text-lg font-semibold">Insurance Company</h1>
+        </Link>
       </div>
 
       {/* Hamburger Menu */}
@@ -70,7 +74,10 @@ const NavigationBar = ({ cartItemCount }) => {
             <li className="text-white mr-2">{`Hello, ${username}`}</li>
             <li>
               <button
-                onClick={() => dispatch(logout())}
+                onClick={() => {
+                  navigate("/");
+                  dispatch(logout());
+                }}
                 className="border border-red-500 hover:border-red-700 text-red-500 hover:text-red-700 font-semibold rounded p-2"
               >
                 Logout
@@ -133,7 +140,10 @@ const NavigationBar = ({ cartItemCount }) => {
                 <li className="text-white">{`Hello, ${username}`}</li>
                 <li>
                   <button
-                    onClick={() => dispatch(logout())}
+                    onClick={() => {
+                      navigate("/");
+                      dispatch(logout());
+                    }}
                     className="border border-red-500 hover:border-red-700 text-red-500 hover:text-red-700 font-semibold rounded p-2"
                   >
                     Logout

@@ -31,7 +31,6 @@ const RegistrationPage = ({ register, error }) => {
   return (
     <div className="screen-1">
       <div className="header">Register</div>
-      {/* Additional input fields for registration */}
       <div className="username">
         <label htmlFor="username">Username</label>
         <div className="sec-2">
@@ -84,7 +83,7 @@ const RegistrationPage = ({ register, error }) => {
         <label htmlFor="userType">User Type</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <select
+          <select className="remove-border"
             value={userType}
             onChange={(e) => setUserType(e.target.value)}
           >
@@ -99,7 +98,7 @@ const RegistrationPage = ({ register, error }) => {
         <label htmlFor="gender">Gender</label>
         <div className="sec-2">
           <ion-icon name="person-outline"></ion-icon>
-          <select value={gender} onChange={(e) => setGender(e.target.value)}>
+          <select className="remove-border" value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value="" disabled>
               Select Gender
             </option>
@@ -110,41 +109,43 @@ const RegistrationPage = ({ register, error }) => {
         </div>
       </div>
       <div className="nickName">
-        <label htmlFor="nickName">Nick Name</label>
-        <div className="sec-2">
-          <ion-icon name="person-outline"></ion-icon>
-          <input
-            type="text"
-            value={nickName}
-            placeholder="Nick Name"
-            onChange={(e) => setNickName(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="username">
-        <label htmlFor="username">Password</label>
-        <div className="sec-2">
-          <ion-icon name="lock-closed-outline"></ion-icon>
-          <input
-            type={showPassword ? "text" : "password"}
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <ion-icon
-            className="show-hide"
-            name="eye-outline"
-            onClick={() => setShowPassword(!showPassword)}
-          ></ion-icon>
-        </div>
-      </div>
-      <button
-        className="register-container register"
-        type="button"
-        onClick={handleRegister}
-      >
-        Register{" "}
-      </button>
+  <label htmlFor="nickName">Nick Name</label>
+  <div className="sec-2">
+    <ion-icon name="person-outline"></ion-icon>
+    <input
+      type="text"
+      value={nickName}
+      placeholder="Nick Name"
+      onChange={(e) => setNickName(e.target.value)}
+    />
+  </div>
+</div>
+
+<div className="password"> {/* Change the class name to something unique */}
+  <label htmlFor="password">Password</label>
+  <div className="sec-2">
+    <ion-icon name="lock-closed-outline"></ion-icon>
+    <input
+      type={showPassword ? "text" : "password"}
+      value={password}
+      placeholder="Password"
+      onChange={(e) => setPassword(e.target.value)}
+    />
+    <ion-icon
+      className="show-hide"
+      name="eye-outline"
+      onClick={() => setShowPassword(!showPassword)}
+    ></ion-icon>
+  </div>
+</div>
+
+<button
+  className="register-container register"
+  type="button"
+  onClick={handleRegister}
+>
+  Register{" "}
+</button>
       <div className="footer register-container">
         <Link to="/login" className="mr-8">
           Login

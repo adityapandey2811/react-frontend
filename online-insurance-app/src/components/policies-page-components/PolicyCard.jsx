@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export default function PolicyCard({
   userId,
@@ -13,7 +15,45 @@ export default function PolicyCard({
   cartItems,
   setCartItems,
 }) {
+  const bearerToken = useSelector((state) => state.auth.token);
   const [isHovered, setIsHovered] = useState(false);
+  const addToCartHandler = async () => {
+    try {
+      if (cartItems.some((item) => item.policyId === policyId)) {
+        const response = await axios.delete(
+          "http://localhost:8077/insurancecart/deletePolicyFromCart",
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+            data: { userId, policyId }, 
+          }
+        );
+        console.log(response);
+        if (response.data.isPolicyDeleteSuccessfully) {
+          setCartItems(cartItems.filter((item) => item.policyId !== policyId));
+          console.log("Policy deleted");
+        }
+      } else {
+        const response = await axios.post(
+          "http://localhost:8077/insurancecart/addPolicyToCart",
+          { userId, policyId },
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
+        console.log(response);
+        if (response.data.isPolicyAddedSuccessfully) {
+          setCartItems([...cartItems, { userId, policyId }]);
+          console.log("Policy added");
+        }
+      }
+    } catch (error) {
+      console.error("Error adding to or deleting from cart", error);
+    }
+  };
 
   return (
     <div className="m-4 flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
@@ -43,15 +83,7 @@ export default function PolicyCard({
           data-ripple-light="true"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onClick={(e) => {
-            if (cartItems.some((item) => item.policyId === policyId)) {
-              setCartItems(
-                cartItems.filter((item) => item.policyId !== policyId)
-              );
-            } else {
-              setCartItems([...cartItems, { userId, policyId }]);
-            }
-          }}
+          onClick={addToCartHandler}
         >
           {isHovered ? (
             <span className="icon-content opacity-0">

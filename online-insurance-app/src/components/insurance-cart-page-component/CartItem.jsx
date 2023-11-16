@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 function CartItem({
@@ -6,13 +7,36 @@ function CartItem({
   setCartItemData,
   setallCartItems,
 }) {
+  const bearerToken = localStorage.getItem("token");
+  const deleteFromCartHandler = async () => {
+    const response = await axios.delete(
+      "http://localhost:8077/insurancecart/deletePolicyFromCart",
+      {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
+        data: {
+          userId: localStorage.getItem("userId"),
+          policyId: singleCartItemData.policyId,
+        },
+      }
+    );
+    if (response.data.isPolicyDeleteSuccessfully) {
+      setallCartItems(
+        allCartItems.filter(
+          (item) => item.policyId !== singleCartItemData.policyId
+        )
+      );
+      console.log("Policy deleted");
+    }
+  };
   return (
     <div className="w-full h-28 m-4 flex flex-row justify-evenly items-center text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
       <div className="w-1/4 h-full flex justify-center items-center">
         <img
-          src="https://icons8.com/icon/122504/building" // Replace this with the actual path to your local image
+          src="https://icons8.com/icon/122504/building"
           alt="Icon"
-          className="w-6 h-6" // Adjust the width and height based on your design
+          className="w-6 h-6"
         />
       </div>
       <div className="w-1/4 h-full flex flex-col justify-center items-center">
@@ -26,14 +50,9 @@ function CartItem({
         <button
           id="remove-item-from-cart"
           className="select-none rounded-lg bg-red-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
-          onClick={() => {
-            const newCartItem = allCartItems.filter(
-              (item) => item.policyId !== singleCartItemData.policyId
-            );
-            setallCartItems(newCartItem);
-          }}
+          onClick={deleteFromCartHandler}
         >
-          Delete Item
+          Delete Item XYZ
         </button>
       </div>
     </div>

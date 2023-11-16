@@ -72,6 +72,7 @@ function CartPage(props) {
       <CartTotalComponent
         allCartItems={allCartItems}
         setallCartItems={setallCartItems}
+        allCatalogData={allCatalogData}
       />
       <Footer />
     </div>

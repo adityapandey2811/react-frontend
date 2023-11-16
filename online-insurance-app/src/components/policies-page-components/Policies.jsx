@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import PolicyCard from "./PolicyCard";
-import PolicyCard from "../../pages/PolicyCard/PolicyCard";
+import PolicyCard from "./PolicyCard/PolicyCard";
+// import PolicyCard from "../../pages/PolicyCard/PolicyCard";
 
 export default function Policies({ catalogData, cartItems, setCartItems }) {
   const [activeFilter, setActiveFilter] = useState("ALL");

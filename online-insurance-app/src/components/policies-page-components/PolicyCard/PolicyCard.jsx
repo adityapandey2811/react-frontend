@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { catalogDataTest } from "../../testData/catalogData";
+import { catalogDataTest } from "../../../testData/catalogData";
 
 export default function PolicyCard({
   userId,

@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 const ForgotPasswordPage = ({ forgotPassword, error }) => {
   const [username, setUsername] = useState("");
-  const [nickname, setNickname] = useState("");
+  const [nickName, setNickName] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
   const handleForgotPassword = () => {
     forgotPassword({
       username,
-      nickname,
+      nickName,
       newPassword,
     });
   };
@@ -38,9 +38,9 @@ const ForgotPasswordPage = ({ forgotPassword, error }) => {
           <ion-icon name="person-outline"></ion-icon>
           <input
             type="text"
-            value={nickname}
+            value={nickName}
             placeholder="Nickname"
-            onChange={(e) => setNickname(e.target.value)}
+            onChange={(e) => setNickName(e.target.value)}
           />
         </div>
       </div>

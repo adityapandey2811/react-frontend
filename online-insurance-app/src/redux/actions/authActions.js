@@ -17,7 +17,7 @@ export const login = (username, password) => {
 
       if (!data.userLoginResponse) {
         console.error("Authentication failed");
-        return;
+        return false;
       }
 
       dispatch({ type: "LOGIN_SUCCESS", payload: { username, token } });

@@ -1,0 +1,135 @@
+
+.screen-3 {
+  margin: 10vh auto;
+  width: 400px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  justify-content: center;
+  align-items: center;
+  background: #f1f7fe;
+  padding: 2em;
+  overflow: hidden;
+}
+
+
+  
+  .screen-3 .header{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: #4d4d4d;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  
+  .screen-3 .username {
+    background: white;
+    box-shadow: 0 0 2em #e6e9f9;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    color: #4d4d4d;
+    margin-top: -3em;
+  }
+  .screen-3 .username input {
+    outline: none;
+    border: none;
+  }
+  /* .screen-3 .username input::-moz-placeholder {
+    color: black;
+    font-size: 0.9em;
+  } */
+  /* .screen-3 .username input:-ms-input-placeholder {
+    color: black;
+    font-size: 0.9em;
+  } */
+  /* .screen-3 .username input::placeholder {
+    color: black;
+    font-size: 0.9em;
+  } */
+  /* .screen-3 .username ion-icon {
+    color: #4d4d4d;
+    margin-bottom: -0.2em;
+  } */
+  .screen-3 .password {
+    background: white;
+    box-shadow: 0 0 2em #e6e9f9;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    color: #4d4d4d;
+}
+
+  .screen-3 .password input {
+    outline: none;
+    border: none;
+  }
+  /* .screen-3 .password input::-moz-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-3 .password input:-ms-input-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-3 .password input::placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-3 .password ion-icon {
+    color: #4d4d4d;
+    margin-bottom: -0.2em;
+  } */
+  /* .screen-3 .password .show-hide {
+    margin-right: -5em;
+  } */
+  .screen-3 .login {
+    padding: 1em;
+    background: #3e4684;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    padding-left: 7em;
+    padding-right: 7em;
+}
+  .screen-3 .footer {
+    display: flex;
+    font-size: 0.7em;
+    color: #5e5e5e;
+    gap: 14em;
+  }
+  .screen-3 .footer span {
+    cursor: pointer;
+  }
+
+
+  /* .login-container {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+} */
+  
+  /* button {
+    cursor: pointer;
+  } */
+
+  

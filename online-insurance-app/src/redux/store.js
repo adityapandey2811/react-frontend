@@ -5,6 +5,7 @@ import adminReducer from "./adminSlice";
 import authReducerRegister from "./reducers/authReducerRegister";
 import loginLogoutReducer from "./reducers/loginLogoutRedux";
 import authReducerReset from "./reducers/authReducerReset";
+import feedbackReducer from "./reducers/feedbackReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   authRegister: authReducerRegister,
   loginLogout: loginLogoutReducer,
   userReducer: authReducerReset,
+  feedback: feedbackReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

@@ -1,29 +1,48 @@
-* {
+/* * {
   font-family: "Poppins";
-}
+} */
 
-/* body {
+.screen-1 {
+  margin: 5vh auto;
+  width: 700px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #dde5f4;
-  height: 100vh;
-} */
-
-.screen-1 {
-  background: #f1f7fe;
-  padding: 2em;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
+  gap: 1.5em;
   border-radius: 30px;
   box-shadow: 0 0 2em #e6e9f9;
+  justify-content: center;
+  align-items: center;
+  background: #f1f7fe;
+  padding: 2em;
 }
+
+.remove-border {
+  border-color: white;
+}
+
+.screen-1 .username,
+.screen-1 .password,
+.screen-1 .firstName,
+.screen-1 .lastName,
+.screen-1 .phoneNo,
+.screen-1 .userType,
+.screen-1 .gender,
+.screen-1 .nickName,
+.screen-1 .password {
+  background: white;
+  box-shadow: 0 0 2em #e6e9f9;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  color: #4d4d4d;
+}
+
 
 .screen-1 .header {
   grid-column: span 2;
@@ -32,15 +51,11 @@
   flex-direction: column;
   gap: 0.5em;
   color: #4d4d4d;
-  padding-bottom: 50px;
   text-align: center;
 }
 
-.screen-1 .logo {
-  margin-top: -3em;
-}
 
-.screen-1 .input-container {
+/* .screen-1 .input-container {
   background: white;
   box-shadow: 0 0 2em #e6e9f9;
   padding: 0.8em;
@@ -49,14 +64,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-}
+} */
 
 .screen-1 input {
   outline: none;
   border: none;
 }
 
-.screen-1 input::-moz-placeholder {
+/* .screen-1 input::-moz-placeholder {
   color: black;
   font-size: 0.8em;
 }
@@ -74,11 +89,8 @@
 .screen-1 ion-icon {
   color: #4d4d4d;
   margin-bottom: -0.2em;
-}
+} */
 
-.screen-1 .password .show-hide {
-  margin-right: -5em;
-}
 
 .screen-1 .register-container {
   grid-column: span 2;
@@ -104,9 +116,9 @@
   gap: 14em;
 }
 
-.screen-1 .footer span {
+/* .screen-1 .footer span {
   cursor: pointer;
-}
+} */
 
 button {
   cursor: pointer;

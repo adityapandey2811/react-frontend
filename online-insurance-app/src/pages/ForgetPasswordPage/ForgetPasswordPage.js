@@ -18,7 +18,7 @@ const ForgotPasswordPage = ({ forgotPassword, error }) => {
   };
 
   return (
-    <div className="screen-1">
+    <div className="screen-4">
       <div className="header">Forgot Password</div>
       <div className="username">
         <label htmlFor="username">Username</label>

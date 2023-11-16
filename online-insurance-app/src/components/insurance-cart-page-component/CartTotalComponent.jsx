@@ -43,7 +43,7 @@ function CartTotalComponent({ allCartItems, setallCartItems, allCatalogData }) {
     }
   }
   return (
-    <div className="container">
+    <div className="container justify-center flex items-center text-center align-middle mb-20 flex-col mx-auto">
       <h2 className="text-3xl">
         Cart Total: $
         {cartDetailArray.reduce((total, policy) => {
@@ -51,18 +51,20 @@ function CartTotalComponent({ allCartItems, setallCartItems, allCatalogData }) {
           return total + policyTotal;
         }, 0)}
       </h2>
-      <button
-        className="select-none m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
-        onClick={deleteCartHandler}
-      >
-        CLEAR CART
-      </button>
-      <button
-        className="select-none m-5 rounded-lg bg-blue-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
-        onClick={checkoutHandler}
-      >
-        CHECKOUT
-      </button>
+      <div className="flex flex-row">
+        <button
+          className="select-none m-5 rounded-lg bg-red-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
+          onClick={deleteCartHandler}
+        >
+          CLEAR CART
+        </button>
+        <button
+          className="select-none m-5 rounded-lg bg-blue-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
+          onClick={checkoutHandler}
+        >
+          CHECKOUT
+        </button>
+      </div>
     </div>
   );
 }

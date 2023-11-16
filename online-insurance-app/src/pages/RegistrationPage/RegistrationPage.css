@@ -108,7 +108,7 @@
   font-weight: 600;
 }
 
-.screen-1 .footer {
+.screen-1 .footer-signup {
   grid-column: span 2;
   display: flex;
   font-size: 0.7em;

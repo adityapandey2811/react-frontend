@@ -18,7 +18,7 @@ const NavigationBar = ({ cartItemCount }) => {
   };
 
   return (
-    <div className="relative w-full h-16 flex justify-between items-center px-4 bg-black text-white pl-10 pr-10">
+    <div className="relative w-full h-16 flex justify-between items-center px-4 bg-black text-white pl-10 pr-10 text-lg">
       <div className="flex items-center">
         <img
           src={InsuranceBuildingLogo}

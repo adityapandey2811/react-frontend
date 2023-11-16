@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PolicyCard from "./PolicyCard";
+// import PolicyCard from "./PolicyCard";
+import PolicyCard from "../../pages/PolicyCard/PolicyCard";
 
 export default function Policies({ catalogData, cartItems, setCartItems }) {
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -38,7 +39,7 @@ export default function Policies({ catalogData, cartItems, setCartItems }) {
   });
 
   return (
-    <div className="container px-5 py-12 mx-auto">
+    <div className="container px-5 py-12 mx-auto pb-32">
       <div className="flex justify-center space-x-4 mb-8">
         {filterOptions.map((option) => (
           <button
@@ -54,7 +55,7 @@ export default function Policies({ catalogData, cartItems, setCartItems }) {
           </button>
         ))}
       </div>
-      <div className="flex flex-wrap items-center justify-center">
+      <div className="flex flex-wrap items-center justify-center gap-20">
         {PolicyCards}
       </div>
     </div>

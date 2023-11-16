@@ -5,10 +5,11 @@ import Policies from "../../components/policies-page-components/Policies";
 import Footer from "../../components/Footer";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import {catalogDataTest} from "../../testData/catalogData"
 
 function PoliciesPage(props) {
   const [cartItems, setCartItems] = useState([]);
-  const [catalogData, setCatalogData] = useState([]);
+  const [catalogData, setCatalogData] = useState(catalogDataTest);
   const bearerToken = useSelector((state) => state.auth.token);
   useEffect(() => {
     const fetchCatalogData = async () => {
@@ -59,7 +60,7 @@ function PoliciesPage(props) {
   }, []);
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-[#f1f7fe]">
       <NavigationBar cartItemCount={cartItems.length} />
       <div className="mt-8">
         <PoliciesBanner

@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import NavigationBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
 import CartHeading from "../components/insurance-cart-page-component/CartHeading";
-import { catalogData } from "../testData/catalogData";
+import { catalogData, catalogDataTest } from "../testData/catalogData";
 import CartItemsContainer from "../components/insurance-cart-page-component/CartItemsContainer";
 import CartTotalComponent from "../components/insurance-cart-page-component/CartTotalComponent";
 import axios from "axios";
+import { cartItemsDataTest } from "../testData/cartItemsData";
 
 function CartPage(props) {
-  const [allCartItems, setallCartItems] = useState([]);
-  const [allCatalogData, setAllCatalogData] = useState([]);
+  const [allCartItems, setallCartItems] = useState(cartItemsDataTest);
+  const [allCatalogData, setAllCatalogData] = useState(catalogDataTest);
   const bearerToken = localStorage.getItem("token");
   useEffect(() => {
     const fetchCatalogData = async () => {

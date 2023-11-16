@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/authActions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 const LoginPage = ({ login, error }) => {
@@ -53,9 +53,9 @@ const LoginPage = ({ login, error }) => {
       >
         Login{" "}
       </button>
-      <div className="footer">
-        <div>Signup</div>
-        <div>Forgot Password?</div>
+      <div className="footer-login">
+        <Link to="/register">Signup</Link>
+        <Link to="/forgetPass">Forgot Password?</Link>
       </div>
     </div>
   );

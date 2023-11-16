@@ -33,11 +33,7 @@ function CartItem({
   return (
     <div className="w-full h-28 m-4 flex flex-row justify-evenly items-center text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
       <div className="w-1/4 h-full flex justify-center items-center">
-        <img
-          src="https://icons8.com/icon/122504/building"
-          alt="Icon"
-          className="w-6 h-6"
-        />
+      <ion-icon name="pricetags" style={{ fontSize: '24px' }}></ion-icon>
       </div>
       <div className="w-1/4 h-full flex flex-col justify-center items-center">
         <h1 className="text-xl">{singleCartItemData.policyName}</h1>
@@ -52,7 +48,7 @@ function CartItem({
           className="select-none rounded-lg bg-red-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40"
           onClick={deleteFromCartHandler}
         >
-          Delete Item XYZ
+          Remove
         </button>
       </div>
     </div>

@@ -63,7 +63,7 @@ const ForgotPasswordPage = ({ forgotPassword, error }) => {
       >
         Reset Password
       </button>
-      <div className="footer forgot-password-container">
+      <div className="footer-forgot forgot-password-container">
         <Link to="/login" className="signup">
           Login
         </Link>

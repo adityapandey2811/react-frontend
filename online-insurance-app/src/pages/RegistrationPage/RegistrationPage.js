@@ -146,7 +146,7 @@ const RegistrationPage = ({ register, error }) => {
 >
   Register{" "}
 </button>
-      <div className="footer register-container">
+      <div className="footer-signup register-container">
         <Link to="/login" className="mr-8">
           Login
         </Link>

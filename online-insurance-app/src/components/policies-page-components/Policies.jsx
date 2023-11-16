@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import PolicyCard from "./PolicyCard";
 
 export default function Policies({ catalogData, cartItems, setCartItems }) {
-  const userId = 1;
-
   const [activeFilter, setActiveFilter] = useState("ALL");
-
+  const sel = localStorage.getItem("userId");
+  console.log(sel);
   const filterOptions = [
     "ALL",
     "LIFE",
@@ -24,7 +23,7 @@ export default function Policies({ catalogData, cartItems, setCartItems }) {
     return (
       <PolicyCard
         key={policyItem.policyId}
-        userId={userId}
+        userId={sel}
         policyId={policyItem.policyId}
         title={policyItem.policyName}
         description={policyItem.description}
@@ -51,7 +50,7 @@ export default function Policies({ catalogData, cartItems, setCartItems }) {
             }`}
             onClick={() => setActiveFilter(option)}
           >
-            {option === "all" ? "All" : option}
+            {option === "ALL" ? "All" : option}
           </button>
         ))}
       </div>

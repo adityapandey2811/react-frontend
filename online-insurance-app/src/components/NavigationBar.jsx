@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/reducers/loginLogoutRedux";
 
-const NavigationBar = ({ cartItemCount, username }) => {
+const NavigationBar = ({ cartItemCount }) => {
   const [nav, setNav] = useState(false);
   const sel = useSelector((state) => state.loginLogout.loggedIn);
   const isLoggedIn = sel;
+  const username = localStorage.getItem("userName");
   const dispatch = useDispatch();
   const handleClick = () => {
     setNav(!nav);

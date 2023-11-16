@@ -1,4 +1,1 @@
-export const cartItemsData = [{
-    userId: 1,
-    policyId: 101
-}]
+export const cartItemsData = [];

@@ -8,11 +8,11 @@ export default function Policies({ catalogData, cartItems, setCartItems }) {
 
   const filterOptions = [
     "ALL",
-    "LIFE INSURANCE",
-    "MEDICAL INSURANCE",
-    "VEHICLE INSURANCE",
-    "FIRE INSURANCE",
-    "PROPERTY INSURANCE",
+    "LIFE",
+    "MEDICAL",
+    "VEHICLE",
+    "FIRE",
+    "PROPERTY",
   ];
 
   const filteredPolicies =

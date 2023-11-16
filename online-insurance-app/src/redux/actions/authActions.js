@@ -22,6 +22,9 @@ export const login = (username, password) => {
 
       dispatch({ type: "LOGIN_SUCCESS", payload: { username, token } });
       dispatch(userLogin());
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", JSON.stringify(data.userId));
+      localStorage.setItem("userName", JSON.stringify(username));
       console.info("Logged in");
       return true;
     } catch (error) {

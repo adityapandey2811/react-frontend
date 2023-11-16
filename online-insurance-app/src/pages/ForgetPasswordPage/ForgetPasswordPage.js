@@ -1,14 +1,13 @@
-// src/ForgotPasswordPage.js
-
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { forgotPassword } from '../../redux/actions/authActionsReset';
-import "./ForgetPasswordPage.css"
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { forgotPassword } from "../../redux/actions/authActionsReset";
+import "./ForgetPasswordPage.css";
+import { Link } from "react-router-dom";
 
 const ForgotPasswordPage = ({ forgotPassword, error }) => {
-  const [username, setUsername] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const handleForgotPassword = () => {
     forgotPassword({
@@ -57,12 +56,20 @@ const ForgotPasswordPage = ({ forgotPassword, error }) => {
           />
         </div>
       </div>
-      <button className="forgot-password" type="button" onClick={handleForgotPassword}>
+      <button
+        className="forgot-password"
+        type="button"
+        onClick={handleForgotPassword}
+      >
         Reset Password
       </button>
       <div className="footer forgot-password-container">
-        <div className="signup">Login</div>
-        <div className="signup">Sign Up</div>
+        <Link to="/login" className="signup">
+          Login
+        </Link>
+        <Link to="/register" className="signup">
+          Sign Up
+        </Link>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 const initialState = {
   user: null,
-  token: null,
+  token: localStorage.getItem("token"),
   error: null,
-  userId: null,
+  userId: localStorage.getItem("userId"),
 };
 
 const authReducer = (state = initialState, action) => {

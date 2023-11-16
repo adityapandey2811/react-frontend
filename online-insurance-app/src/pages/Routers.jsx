@@ -6,6 +6,8 @@ import LoginPage from "./LoginPage/LoginPage";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import AdminPage from "./AdminPage";
 import PoliciesPage from "./AllPoliciesPage/PoliciesPage";
+import AboutUs from "./AboutUs/AboutUs";
+import ForgotPasswordPage from "./ForgetPasswordPage/ForgetPasswordPage";
 
 function Routers(props) {
   return (
@@ -17,6 +19,8 @@ function Routers(props) {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/forgetPass" element={<ForgotPasswordPage />} />
       </Routes>
     </BrowserRouter>
   );

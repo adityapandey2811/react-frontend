@@ -1,0 +1,83 @@
+.about-us {
+  max-width: 100%;
+  max-height: max-content;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  color: black;
+}
+
+/* h1 {
+  color: #422828;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #422828;
+  font-size: 1.7em;
+  margin-bottom: 7px;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+} */
+
+.about-us h1,
+.about-us p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal styles */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal h2 {
+  color: #333;
+}
+
+.modal strong {
+  color: #4caf50;
+}
+
+.modal button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #45a049;
+}
+
+/* Button Styles */
+.contact-button {
+  background-color: #327fc4;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #2b83dc;
+}

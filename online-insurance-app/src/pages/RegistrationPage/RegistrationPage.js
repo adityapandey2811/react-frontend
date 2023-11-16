@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../../redux/actions/authActionsRegister";
 import "./RegistrationPage.css";
+import { Link } from "react-router-dom";
 
 const RegistrationPage = ({ register, error }) => {
   const [username, setUsername] = useState("");
@@ -145,8 +146,9 @@ const RegistrationPage = ({ register, error }) => {
         Register{" "}
       </button>
       <div className="footer register-container">
-        <div className="signup">Login</div>
-        <div className="forgot-password">Forgot Password?</div>
+        <Link to="/login" className="mr-8">
+          Login
+        </Link>
       </div>
     </div>
   );

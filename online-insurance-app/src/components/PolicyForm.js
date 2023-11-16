@@ -155,11 +155,11 @@ const PolicyForm = (props) => {
             <option value="" disabled>
               Select Insurance Type
             </option>
-            <option value="LIFE INSURANCE">Life Insurance</option>
-            <option value="MEDICAL INSURANCE">Medical Insurance</option>
-            <option value="VEHICLE INSURANCE">Vehicle Insurance</option>
-            <option value="PROPERTY INSURANCE">Property Insurance</option>
-            <option value="FIRE INSURANCE">Fire Insurance</option>
+            <option value="LIFE">Life Insurance</option>
+            <option value="MEDICAL">Medical Insurance</option>
+            <option value="VEHICLE">Vehicle Insurance</option>
+            <option value="PROPERTY">Property Insurance</option>
+            <option value="FIRE">Fire Insurance</option>
 
             {/* Add more options as needed */}
           </select>

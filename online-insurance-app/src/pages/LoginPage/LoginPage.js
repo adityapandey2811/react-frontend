@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/authActions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage({ login, error }) {
   const [username, setUsername] = useState("");
@@ -10,7 +10,8 @@ function LoginPage({ login, error }) {
   const navigate = useNavigate();
   const handleLogin = () => {
     if (login(username, password)) {
-      navigate("/policies");
+      if (username == "admin") navigate("/admin");
+      else navigate("/");
     }
   };
 
@@ -63,8 +64,10 @@ function LoginPage({ login, error }) {
         Login
       </button>
       <div className="flex text-sm text-gray-500 mt-4">
-        <div className="mr-8">Signup</div>
-        <div>Forgot Password?</div>
+        <Link to="/register" className="mr-8">
+          Sign Up
+        </Link>
+        <Link to="/forgetPass">Forget Password</Link>
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ const DiscountForm = (props) => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Discount Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="text-left">
         <div className="mb-4">
           <label
             htmlFor="policyId"

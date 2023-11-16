@@ -1,5 +1,5 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App {
@@ -112,7 +112,7 @@
 }
 
 .nav-item::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -128,7 +128,6 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

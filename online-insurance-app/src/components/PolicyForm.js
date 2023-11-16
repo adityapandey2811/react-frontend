@@ -50,7 +50,7 @@ const PolicyForm = (props) => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Policy Catalogue Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="text-left">
         <div className="mb-4">
           <label
             htmlFor="policyName"
@@ -160,14 +160,12 @@ const PolicyForm = (props) => {
             <option value="VEHICLE">Vehicle Insurance</option>
             <option value="PROPERTY">Property Insurance</option>
             <option value="FIRE">Fire Insurance</option>
-
-
           </select>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none"
+          className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none mb-6"
         >
           Submit
         </button>

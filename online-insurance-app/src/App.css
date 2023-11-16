@@ -38,9 +38,6 @@
   padding: 0;
   min-width: 130px;
   min-height: 50px;
-}
-
-.add-to-cart-button {
   transition: opacity 0.3s;
 }
 
@@ -60,7 +57,7 @@
   position: relative;
   display: inline-block;
   margin: 0 10px;
-  padding-bottom: 5px; /* Adjust the padding as needed */
+  padding-bottom: 5px;
   cursor: pointer;
 }
 
@@ -68,10 +65,10 @@
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px; /* Border height */
+  height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ff69b4; /* Border color */
+  background-color: #ff69b4;
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease;
@@ -101,32 +98,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-.nav-item {
-  position: relative;
-  display: inline-block;
-  margin: 0 10px;
-  padding-bottom: 5px;
-  cursor: pointer;
-}
-
-.nav-item::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #ff69b4;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease;
-}
-
-.nav-item:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
 }
 
 @media (prefers-reduced-motion: no-preference) {

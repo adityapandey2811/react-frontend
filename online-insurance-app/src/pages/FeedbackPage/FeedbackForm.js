@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addFeedback } from "../../redux/actions/feedbackActions";
+import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./FeedbackForm.css";
 
-const FeedbackForm = () => {
+const FeedbackForm = (props) => {
+  const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [feedback, setFeedback] = useState({
     orderId: "",
     feedbackDescription: "",
@@ -13,6 +17,7 @@ const FeedbackForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addFeedback(feedback));
+    navigate("/");
   };
 
   return (
@@ -24,7 +29,8 @@ const FeedbackForm = () => {
           <ion-icon name="person-outline"></ion-icon>
           <input
             type="text"
-            value={feedback.orderId}
+            value={params.id}
+            disabled
             placeholder="Order ID"
             onChange={(e) =>
               setFeedback({ ...feedback, orderId: e.target.value })

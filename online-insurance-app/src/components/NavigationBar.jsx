@@ -50,6 +50,11 @@ const NavigationBar = ({ cartItemCount }) => {
             About Us
           </Link>
         </li>
+        <li>
+          <Link to="/orders" className=" nav-item">
+            Orders
+          </Link>
+        </li>
         <li className="flex items-center">
           <Link to="/cart">
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />

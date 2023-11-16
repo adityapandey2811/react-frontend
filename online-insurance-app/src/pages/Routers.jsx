@@ -10,6 +10,7 @@ import AboutUs from "./AboutUs/AboutUs";
 import ForgotPasswordPage from "./ForgetPasswordPage/ForgetPasswordPage";
 import FeedbackFormPage from "./FeedbackPage/FeedbackForm"
 import FeedbackListPage from "./FeedbackPage/FeedbackList"
+import OrdersPage from "./OrdersPage/OrdersPage";
 
 function Routers(props) {
   return (
@@ -23,8 +24,9 @@ function Routers(props) {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/forgetPass" element={<ForgotPasswordPage />} />
-        <Route path="/feedback" element={<FeedbackFormPage />} />
+        <Route path="/feedback/:id" element={<FeedbackFormPage />} />
         <Route path="/feedbackList" element={<FeedbackListPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
       </Routes>
     </BrowserRouter>
   );

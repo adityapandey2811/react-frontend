@@ -10,8 +10,10 @@ const LoginPage = ({ login, error }) => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const handleLogin = () => {
-    if (login(username, password)) navigate("/admin");
-    else navigate("/");
+    if (login(username, password)) {
+      if (username == "admin") navigate("/admin");
+      else navigate("/");
+    }
   };
 
   return (

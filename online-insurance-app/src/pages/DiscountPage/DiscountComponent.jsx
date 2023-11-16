@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-const DiscountComponent = ({ cartItems, cartTotal, setCartTotal }) => {
+function DiscountComponent({ cartItems, cartTotal, setCartTotal }) {
   const [discounts, setDiscounts] = useState([]);
   const [appliedDiscount, setAppliedDiscount] = useState(null);
+  const bearerToken = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchDiscounts = async () => {
       try {
-        // url dalo
-        const response = await fetch("/api/discounts");
-
+        const response = await fetch(
+          "http://localhost:8077/discount/showbypolicyid",
+          cartItems,
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
+        console.log(response);
         if (response.ok) {
           const data = await response.json();
           setDiscounts(data);
@@ -48,11 +56,13 @@ const DiscountComponent = ({ cartItems, cartTotal, setCartTotal }) => {
       {appliedDiscount && (
         <div>
           <h3>Applied Discount</h3>
-          <p>{appliedDiscount.name} - ${appliedDiscount.amount}</p>
+          <p>
+            {appliedDiscount.name} - ${appliedDiscount.amount}
+          </p>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default DiscountComponent;

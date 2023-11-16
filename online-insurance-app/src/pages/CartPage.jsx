@@ -7,10 +7,12 @@ import CartItemsContainer from "../components/insurance-cart-page-component/Cart
 import CartTotalComponent from "../components/insurance-cart-page-component/CartTotalComponent";
 import axios from "axios";
 import { cartItemsDataTest } from "../testData/cartItemsData";
+import DiscountComponent from "./DiscountPage/DiscountComponent";
 
 function CartPage(props) {
   const [allCartItems, setallCartItems] = useState(cartItemsDataTest);
   const [allCatalogData, setAllCatalogData] = useState(catalogDataTest);
+  const [policyIdList, setPolicyIdList] = useState([]);
   const bearerToken = localStorage.getItem("token");
   useEffect(() => {
     const fetchCatalogData = async () => {
@@ -44,6 +46,7 @@ function CartPage(props) {
             },
           }
         );
+        setPolicyIdList(response.data.listOfPolicyIds);
         const temp = [];
         for (const element of response.data.listOfPolicyIds) {
           temp.push({
@@ -63,18 +66,23 @@ function CartPage(props) {
   return (
     <div className="bg-slate-50">
       <NavigationBar cartItemCount={allCartItems.length} />
-      <CartHeading itemCount={allCartItems.length} />
-      <CartItemsContainer
-        allCartItems={allCartItems}
-        setallCartItems={setallCartItems}
-        allCatalogData={allCatalogData}
-        setAllCatalogData={setAllCatalogData}
-      />
-      <CartTotalComponent
-        allCartItems={allCartItems}
-        setallCartItems={setallCartItems}
-        allCatalogData={allCatalogData}
-      />
+      <div>
+        <div>
+          <CartHeading itemCount={allCartItems.length} />
+          <CartItemsContainer
+            allCartItems={allCartItems}
+            setallCartItems={setallCartItems}
+            allCatalogData={allCatalogData}
+            setAllCatalogData={setAllCatalogData}
+          />
+          <CartTotalComponent
+            allCartItems={allCartItems}
+            setallCartItems={setallCartItems}
+            allCatalogData={allCatalogData}
+          />
+        </div>
+        <DiscountComponent cartItems={policyIdList} />
+      </div>
       <Footer />
     </div>
   );

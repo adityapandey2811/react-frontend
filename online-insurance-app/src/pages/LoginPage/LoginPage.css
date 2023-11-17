@@ -48,22 +48,6 @@
     outline: none;
     border: none;
   }
-  /* .screen-3 .username input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-  } */
-  /* .screen-3 .username input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-  } */
-  /* .screen-3 .username input::placeholder {
-    color: black;
-    font-size: 0.9em;
-  } */
-  /* .screen-3 .username ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-  } */
   .screen-3 .password {
     background: white;
     box-shadow: 0 0 2em #e6e9f9;
@@ -82,25 +66,6 @@
     outline: none;
     border: none;
   }
-  /* .screen-3 .password input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-3 .password input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-3 .password input::placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-3 .password ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-  } */
-  /* .screen-3 .password .show-hide {
-    margin-right: -5em;
-  } */
   .screen-3 .login {
     padding: 1em;
     background: #3e4684;
@@ -120,16 +85,3 @@
   .screen-3 .footer span {
     cursor: pointer;
   }
-
-
-  /* .login-container {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
-} */
-  
-  /* button {
-    cursor: pointer;
-  } */
-
-  

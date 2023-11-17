@@ -11,8 +11,12 @@ const LoginPage = ({ login, error }) => {
   const navigate = useNavigate();
   const handleLogin = () => {
     if (login(username, password)) {
+      console.log(username);
       if (username == "admin") navigate("/admin");
       else navigate("/");
+    } else {
+      alert("Login Failed");
+      navigate("/login");
     }
   };
 

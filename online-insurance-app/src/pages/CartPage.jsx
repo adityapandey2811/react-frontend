@@ -83,6 +83,7 @@ function CartPage(props) {
             setallCartItems={setallCartItems}
             allCatalogData={allCatalogData}
             discountTotal={totalDiscount}
+            setTotalDiscount={setTotalDiscount}
           />
         </div>
         <div className="flex-shrink-0 w-1/4 p-4">

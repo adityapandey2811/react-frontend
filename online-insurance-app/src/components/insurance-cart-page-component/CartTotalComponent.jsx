@@ -6,6 +6,7 @@ function CartTotalComponent({
   setallCartItems,
   allCatalogData,
   discountTotal,
+  setTotalDiscount,
 }) {
   const bearerToken = localStorage.getItem("token");
   const deleteCartHandler = async () => {
@@ -41,6 +42,7 @@ function CartTotalComponent({
     if (response.status == 200) {
       alert("Policies Purchased Successfully");
       setallCartItems([]);
+      setTotalDiscount(0);
     }
   };
   const cartDetailArray = [];

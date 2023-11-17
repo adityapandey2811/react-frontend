@@ -39,7 +39,11 @@ export default function OrdersContainer() {
 
   return (
     <div className="container mx-auto p-4">
-      <OrdersTable tableHeadings={TABLE_HEADER} tableRows={TABLE_ROWS} />
+      {allOrderDetails.length > 0 ? (
+        <OrdersTable tableHeadings={TABLE_HEADER} tableRows={TABLE_ROWS} />
+      ) : (
+        <>You Have Not Purchased Any Policy Yet &#128054;</>
+      )}
     </div>
   );
 }
